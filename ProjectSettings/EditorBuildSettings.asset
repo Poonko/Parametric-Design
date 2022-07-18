@@ -8,11 +8,14 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Parametric Design/01. Machining Center/Parametric Design MCT.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Parametric Design/03. CNC/Parametric Design CNC.unity
     guid: f44a3b5e0a0fcfc489845e4e65fd23ec
   - enabled: 0
     path: Assets/Parametric Design/02. Measuring Machine/Parametric Design Measuring
       Machine.unity
     guid: b6fea21b89af3e44fb7b1ffc72de7ad8
+  - enabled: 1
+    path: Assets/Parametric Design/04. MCT/MCT Parametric.unity
+    guid: e56d0607340713a449fb1a3fc59f9432
   m_configObjects: {}
