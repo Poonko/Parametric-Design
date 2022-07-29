@@ -15424,7 +15424,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 617838413623369031, guid: 61925a4a4e99004479415255739c736d, type: 3}
       propertyPath: m_Text
-      value: Others
+      value: Coordinate
       objectReference: {fileID: 0}
     - target: {fileID: 617838413623369049, guid: 61925a4a4e99004479415255739c736d, type: 3}
       propertyPath: m_Name
