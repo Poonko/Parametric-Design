@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CalculateParameters : MonoBehaviour
 {
@@ -36,6 +37,8 @@ public class CalculateParameters : MonoBehaviour
     public static float LM_Guide_Y_Location_Scaling = 8.5f;
     public static float SaddleCover_Y_Location_Scaling = 2.5f;
     public static float Saddle_Y_Location_Scaling = 2.5f;
+    [SerializeField] Text timeText;
+    [SerializeField] Text ATCText, BedText, ColumnText, HeadStockText, KneeText, TableText, ToolHolderText, SaddleText, LMGuideText, SpindleText;
 
     // Start is called before the first frame update
     void Start()
@@ -72,19 +75,6 @@ public class CalculateParameters : MonoBehaviour
             SaddleCover_Z_term + Bed.transform.localScale.z * Bed_Z_Location_Scaling - HeadStock.transform.localScale.z * 0.5f);
         LM_Guide.transform.position = new Vector3(0, Bed.transform.localScale.y * Scaling_Bed_Y * 0.1f + Saddle_Cover.transform.localScale.y * SaddleCover_Y_Location_Scaling
             + Saddle.transform.localScale.y * Saddle_Y_Location_Scaling - LM_Guide_Y_Location_Scaling, 0);
-
-        /*ATC_30.transform.position = new Vector3(-HeadStock.transform.localScale.x * 0.5f - ATC_X_Location_Scaling, Column.transform.localScale.y - ATC_Y_Location_Scaling,
-            SaddleCover_Z_term + Bed.transform.localScale.z * Bed_Z_Location_Scaling - HeadStock.transform.localScale.z * 0.5f);
-        ATC_24.transform.position = new Vector3(-HeadStock.transform.localScale.x * 0.5f - ATC_X_Location_Scaling, Column.transform.localScale.y - ATC_Y_Location_Scaling,
-            SaddleCover_Z_term + Bed.transform.localScale.z * Bed_Z_Location_Scaling - HeadStock.transform.localScale.z * 0.5f);
-        ATC_20.transform.position = new Vector3(-HeadStock.transform.localScale.x * 0.5f - ATC_X_Location_Scaling, Column.transform.localScale.y - ATC_Y_Location_Scaling,
-            SaddleCover_Z_term + Bed.transform.localScale.z * Bed_Z_Location_Scaling - HeadStock.transform.localScale.z * 0.5f);
-        ATC_15.transform.position = new Vector3(-HeadStock.transform.localScale.x * 0.5f - ATC_X_Location_Scaling, Column.transform.localScale.y - ATC_Y_Location_Scaling,
-            SaddleCover_Z_term + Bed.transform.localScale.z * Bed_Z_Location_Scaling - HeadStock.transform.localScale.z * 0.5f);*/
-
-
-
-
     }
 
     public void ClickApplyButton()
@@ -103,5 +93,22 @@ public class CalculateParameters : MonoBehaviour
             = new Vector3(SaddleCover_Slider_X.SDValue / Scaling_SaddleCover_X, SaddleCover_Slider_Y.SDValue / Scaling_SaddleCover_Y, SaddleCover_Slider_Z.SDValue / Scaling_SaddleCover_Z);
         Table.transform.localScale
             = new Vector3(Table_Slider_X.SDValue / Scaling_Table_X, Table_Slider_Y.SDValue / Scaling_Table_Y, Table_Slider_Z.SDValue / Scaling_Table_Z);
+
+        timeText.text = string.Format("Delay Time = {0:0.0}ms", Time.deltaTime * 1000.0f);
+
+        BedText.text = string.Format("{0:0.0} / {1:0.0} / {2:0.0}",
+            Scaling_Bed_X * Bed.transform.localScale.x, Scaling_Bed_Y * Bed.transform.localScale.y, Scaling_Bed_Z * Bed.transform.localScale.z);
+        ColumnText.text = string.Format("{0:0.0} / {1:0.0} / {2:0.0}",
+            Scaling_Column_X * Column.transform.localScale.x, Scaling_Column_Y * Column.transform.localScale.y, Scaling_Column_Z * Column.transform.localScale.z);
+        HeadStockText.text = string.Format("{0:0.0} / {1:0.0} / {2:0.0}",
+            Scaling_HeadStock_X * HeadStock.transform.localScale.x, Scaling_HeadStock_Y * HeadStock.transform.localScale.y, Scaling_HeadStock_Z * HeadStock.transform.localScale.z);
+        KneeText.text = string.Format("{0:0.0} / {1:0.0} / {2:0.0}",
+            Scaling_SaddleCover_X * Saddle_Cover.transform.localScale.x, Scaling_SaddleCover_Y * Saddle_Cover.transform.localScale.y, Scaling_SaddleCover_Z * Saddle_Cover.transform.localScale.z);
+        TableText.text = string.Format("{0:0.0} / {1:0.0} / {2:0.0}",
+            Scaling_Table_X * Table.transform.localScale.x, Scaling_Table_Y * Table.transform.localScale.y, Scaling_Table_Z * Table.transform.localScale.z);
+        SaddleText.text = string.Format("{0:0.0} / {1:0.0} / {2:0.0}",
+            Scaling_Saddle_X * Saddle.transform.localScale.x, Scaling_Saddle_Y * Saddle.transform.localScale.y, Scaling_Saddle_Z * Saddle.transform.localScale.z);
+        ToolHolderText.text = string.Format("{0:0.0} / {1:0.0}",
+            Scaling_Chuck_D * Chuck.transform.localScale.x, Scaling_Chuck_L * Chuck.transform.localScale.y);
     }
 }
