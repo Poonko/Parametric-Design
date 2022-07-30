@@ -29,6 +29,8 @@ public class FrameCounter : MonoBehaviour
         {
             isShow = !isShow;
         }
+
+        Application.targetFrameRate = -1;
     }
 
 
